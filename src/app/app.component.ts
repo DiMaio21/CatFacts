@@ -9,20 +9,16 @@ import { Component } from '@angular/core';
 export class AppComponent {
 frase: string=""
 
- constructor(private frasine: HttpClient)
- {
+ constructor(private frasine: HttpClient) {
   this.frasine.get("https://catfact.ninja/fact").subscribe(
-  res=>{
-  this.frase= res["fact"]
+    res=>{
+      this.frase = res["fact"]
 
-  }
-
+    },
+    err => {
+      console.log(err);
+    }
   )
-
  }
-  title = 'CatFacts';
-
-  
-
 
 }
